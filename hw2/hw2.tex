@@ -1,0 +1,129 @@
+% STAT 451 HW2 
+% Russell Miller
+% Oct 13 2011
+
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{anysize}
+%\usepackage{wasysym}
+\usepackage{graphicx}
+%for upvarsigma
+\usepackage{upgreek}
+
+\marginsize{2cm}{2cm}{2cm}{2cm}
+
+\title{STAT451 HW2}
+\author{Russell Miller}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\paragraph{1. A student selected from a class will either be a boy or a girl. 
+If the probability that a boy will be selected is .3, what is the probability
+that a girl will be selected?\\}
+Let the number of boys be 3, and the total class size be 10. The P(boy)=.3
+would be satisfied, and there would be 7 girls remaining.
+\begin{center}
+$\boxed{P(girl)=.7}$
+\end{center}
+
+\paragraph{3. If the probability that student A will fail a certain statistics
+examination is 0.5, the probability that student B will fail the examination
+is 0.2, and the probability that both student A and student B will fail the
+examination is 0.1, what is the probability that at least one of these two
+students will fail the examination?\\}
+$P(A)=.5$, $P(B)=.2$, $P(A\cap B)=.1$\\
+What we're looking for is when A will fail \emph{or} B will fail.
+This could be represented as $P(A \cup B)$.\\
+By Theorem 6 we know that $P(A \cup B) = P(A) + P(B) - P(A \cap B)$.
+\begin{center}
+$\boxed{P(A \cup B) = .5+.2-.1=.6}$
+\end{center}
+
+\paragraph{6. Consider two events A and B such that $P(A)=\frac{1}{3}$
+and $P(B)=\frac{1}{2}$. Determine the value of $P(B \cap A')$ for each of
+the following conditions:}
+\begin{enumerate}
+\item[a.] \textbf{A and B are disjoint}\\
+$P(B)$ does not share any outcomes with $P(A)$, so $P(B)$ is a subset
+of $P(A')$. The intersection of $P(B)$ with $P(A')$ is just $P(B)$.
+\begin{center}
+$\boxed{P(B \cap A') = P(B) = \frac{1}{2}}$
+\end{center}
+
+\item[b.] \textbf{A $\subset$ B}\\
+This is the donut hole problem. If you want all of $P(B)$ except for the $P(A)$
+part:
+\begin{center}
+$\boxed{P(B \cap A') = P(B)-P(A)=\frac{1}{2}-\frac{1}{3}=\frac{1}{6}}$
+\end{center}
+
+\item[c.] \textbf{P(A $\cap$ B) = $\frac{1}{8}$}\\
+Now we know they are not disjoint. The overlap section of the venn diagram
+is the $\frac{1}{8}$ part. So in order to make sure we get the $P(B)$ without
+the $P(A)$, we have to take:
+\begin{center}
+$\boxed{P(B \cap A') = P(B) - P(A \cap B) = \frac{1}{2}-\frac{1}{8}=\frac{3}{8}}$
+\end{center}
+\end{enumerate}
+
+\paragraph{9. Prove that for any two events A and B, the probability that exactly
+one of the two events will occur is given by the expression:}
+\begin{center}
+\textbf{P(A) + P(B) - 2P(A $\cap$ B)}
+\end{center}
+We want to know the probability that A will occur and not B,
+or that B will occur and not A. These can be represented as $P(A \cap B')$ and
+$P(B \cap A')$ respectively.\\
+We also know that $P(A \cap B') = P(A)-P(A \cap B)$ and
+$P(B \cap A') = P(B)-P(A \cap B)$.\\
+Thus:\\
+$P(A \cap B') + P(B \cap A')$\\
+$P(A)-P(A \cap B) + P(B) - P(A \cap B)$\\
+$P(A) + P(B) - 2P(A \cap B) \blacksquare$
+
+\paragraph{10. A point $(x, y)$ is to be selected from the square S containing
+all points $(x, y)$ such that $0 \leq x \leq 1$ and $0 \leq y \leq 1$. Suppose that
+the probability that the selected point will belong to any specified subset of S is
+equal to the area of that subset. Find the probability of each of the following subsets:}
+\begin{enumerate}
+\item[a.] $(x-\frac{1}{2})^2 + (y-\frac{1}{2})^2 \geq \frac{1}{4}$\\
+This equation is the area above a semicircle within S. We can find this area by:
+\begin{center}
+$Area\; of\; square - Area\; of\; circle \over 2$\\
+$\boxed{\frac{1-\pi\frac{1}{2}^2}{2} = .1073}$
+\end{center}
+
+\item[b.] $\frac{1}{2} < x + y < \frac{3}{2}$\\
+This is the area between two right triangles, of height $\frac{1}{2}$ and width
+$\frac{1}{2}$.
+\begin{center}
+$Area\; of\; square - 2(Area\; of\; triangle)$\\
+$\boxed{1-2\left(\frac{1}{2}\left(\frac{1}{2}\right)^2\right) = \frac{3}{4}}$
+\end{center}
+
+\item[c.] $y \leq 1-x^2$\\
+To get the area under this curve, simply integrate from 0 to 1.
+\begin{center}
+$\boxed{\int_0^1(1-x^2)dx = \frac{2}{3}}$
+\end{center}
+
+\item[d.] $x=y$\\
+This is a line connecting one corner to another. If the square has 10000 possible 
+points, that is 100x100. Then for each of the 100 possible values of x, only one 
+matches y. So there would be one for each value of y. Meaning 
+$\frac{100}{10000}$ or $\frac{1}{100}$.\\
+If, however, there were only 100 possible points, that is 10x10. Then for each
+of the 10 possible values of x, only one will match y. But this is true for each of
+the 10 values of y, so it is $\frac{10}{100}$ or $\frac{1}{10}$.\\
+So it seems it would depend on the number of possible outcomes.\\
+\end{enumerate}
+
+\begin{center}
+$\upvarsigma$\_$\upvarsigma$
+\end{center}
+
+\end{document}
