@@ -126,4 +126,53 @@ So it seems it would depend on the number of possible outcomes.\\
 $\upvarsigma$\_$\upvarsigma$
 \end{center}
 
+\pagebreak
+
+\paragraph{Text 2.79 A random sample of 200 adults are classified by sex and
+their level of education attained. If a person is picked at random from this group,
+find the probability that:\\}
+\begin{enumerate}
+\item[a.] the person is a male, given that the person has a secondary education.\\
+78 people have a secondary education, from that there are 28 males.
+\begin{center}
+$\boxed{\frac{28}{200} = .14}$
+\end{center}
+
+\item[b.] the person does not have a college degree, given that the person is a female.\\
+There are 112 females. Of them 95 do not have a degree.
+\begin{center}
+$\boxed{\frac{95}{200} = .475}$
+\end{center}
+\end{enumerate}
+
+\paragraph{Text 2.86 For married couples living in a certain suburb the probability 
+that the husband will vote on a bond referendum is 0.21, the probability that his wife
+will vote on the referendum is 0.28, and the probability that both the husband and the
+wife will vote is 0.15. What is the probability that:\\}
+\begin{enumerate}
+\item[a.] at least one member of a married couple will vote\\
+Let $P(h)=0.21$ be the probability the husband will vote. Let $P(w)=0.28$ be the
+probability the wife will vote. Then, $P(h \cap w) = 0.15$ is the probability that both
+will vote. $P(h \cup w)$ is the probability that at least one will vote. 
+\begin{center}
+$\boxed{P(h \cup w) = P(h) + P(w) - P(h \cap w) = 0.21+0.28-0.15 = 0.34}$
+\end{center}
+
+\item[b.] a wife will vote, given that her husband will vote\\
+By the division rule we know that $P(w\mid h) = \frac{P(w \cap h)}{P(h)}$.
+\begin{center}
+$\boxed{P(w\mid h) = \frac{0.15}{0.21} = 0.7143...}$
+\end{center}
+
+\item[c.] a husband will vote, given that his wife will not vote\\
+We can see that $P(w') = 1-P(w) = 1-0.28 = 0.72$\\
+Also, $P(h \cap w') = P(h) - P(h \cap w) = 0.21 - 0.15 = 0.06$
+Thus:
+\begin{center}
+$\boxed{P(h\mid w') = \frac{P(h \cap w')}{P(w')} = \frac{0.06}{0.72} = 0.08\bar3}$
+\end{center}
+\end{enumerate}
+
+\paragraph{Did not finish the last 3 questions that were assigned from the book.}
+
 \end{document}
