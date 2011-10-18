@@ -74,9 +74,121 @@ where one is following the other:
 {1,2},{2,3},{3,4},{4,5},{5,6}
 \end{verbatim}
 So there are 25 ways to position the 2 specific persons that refuse to follow each other.
+There are another 25 if you mirror each of those positions.
 There are 4 remaining people, so:
 \begin{center}
-$\boxed{25 \times 4! = 600}$
+$\boxed{50 \times 4! = 1200}$
+\end{center}
+\end{enumerate}
+
+\paragraph{2.37 In how many ways can 4 boys and 5 girls sit in a row if the boys and
+girls must alternate?\\}
+There is only one possible pattern:
+\begin{verbatim}
+GBGBGBGBG
+\end{verbatim}
+So simply arrange the 4 boys first ($4!$), then the 5 girls ($5!$), by sticking to that pattern.
+\begin{center}
+$\boxed{(4!)(5!) = 2880}$
+\end{center}
+
+\paragraph{2.39 In a regional spelling bee, the 8 finalists consists of 3 boys and 5 girls. 
+Find the number of sample points in the sample space \emph{S} for the number of 
+possible orders at the conclusion of the contest for:}
+\begin{enumerate}
+\item[a.] \textbf{all 8 finalists.}\\
+To arrange 8 finalists in every possible order:
+\begin{center}
+$\boxed{8! = 40320}$
+\end{center}
+\item[b.] \textbf{the first 3 positions.}\\
+To arrange 3 people from a total of 8 possible people:
+\begin{center}
+$\boxed{_8P_3 = 336}$
+\end{center}
+\end{enumerate}
+
+\paragraph{2.101 In a certain region of the country it is known from past experience that 
+the probability of selecting an adult over 40 years of age with cancer is 0.05. If the 
+probability of a doctor correctly diagnosing a person with cancer as having the disease 
+is 0.78 and the probability of incorrectly diagnosing a person without cancer as having 
+the disease is 0.06, what is the probability that a person is diagnosed as having 
+cancer?\\}
+Let $P(C)$ be the probability of selecting an adult over 40 years of age with cancer.
+Let $P(D)$ be the probability that they are diagnosed with having the disease.
+We know the following:\\
+$P(C) = 0.05$, $P(D \mid C) = 0.78$, $P(D \mid C') = 0.06$ and $P(C') = 1 - P(C) = 0.95$.\\
+Thus by Bayes' Rule:
+\begin{center}
+$\boxed{P(D) = P(C)P(D \mid C) + P(C')P(D \mid C') = (0.05)(0.78)+(0.95)(0.06) = 0.096}$
+\end{center}
+
+\paragraph{2.103 Referring to Exercise 2.101, what is the probability that a person 
+diagnosed as having cancer actually has the disease?\\}
+\begin{center}
+$\boxed{P(C \mid D) = \frac{P(C)P(D \mid C)}{P(D)} = \frac{(0.05)(0.78)}{0.096} = 0.40625}$
+\end{center}
+
+\pagebreak
+
+\paragraph{2.105 Suppose that the four inspectors at a film factory are supposed to stamp 
+the expiration date on each package of film at the end of the assembly line. John, who 
+stamps 20\% of the packages, fails to stamp the expiration date once in every 200 
+packages; Tom, who stamps 60\% of the packages, fails to stamp the expiration date once 
+in every 100 packages; Jeff, who stamps 15\% of the packages, fails to stamp the expiration 
+date once in every 90 packages; and Pat, who stamps 5\% of the packages, fails to stamp 
+the expiration date once in every 200 packages. If a customer complains that her package 
+of film does not show the expiration date, what is the probability that it was inspected by 
+John?\\}
+Let $P(I_1) = 0.2$ be the probability that John inspected a package, and $P(I_2) = 0.6$ be 
+Tom, $P(I_3) = 0.15$ be Jeff, and $P(I_4) = 0.05$ be Pat.
+Let $P(E)$ be the probability that the expiration date was not stamped.\\
+So far we know:\\
+$P(E \mid I_1) = \frac{1}{200}$, $P(E \mid I_2) = \frac{1}{100}$, 
+$P(E \mid I_3) = \frac{1}{90}$, $P(E \mid I_4) = \frac{1}{200}$.\\
+And we know we are looking for $P(I_2 \mid E)$.
+\begin{center}
+$P(E) = P(I_1)P(E \mid I_1) + P(I_2)P(E \mid I_2) + P(I_3)P(E \mid I_3) + P(I_4)P(E \mid I_4) = 
+\frac{0.2}{200} + \frac{0.6}{100} + \frac{0.15}{90} + \frac{0.05}{200} = 0.008917$\\
+$\boxed{P(I_2 \mid E) = \frac{P(I_2)P(E \mid I_2)}{P(E)} = \frac{(0.2)(0.005)}{0.008917} = 
+0.1121495327}$
+\end{center}
+
+\paragraph{2.107 Pollution of the rivers in the United States has been a problem for many 
+years. Consider the following events:\\
+A = \{The river is polluted\}\\
+B = \{A sample of water tested detects pollution.\}\\
+C = \{Fishing permitted.\}\\
+Assume $P(A) = 0.3$, $P(B \mid A) = 0.75$, $P(B \mid A') = 0.20$, $P(C \mid A \cap B) = 0.20$,
+$P(C \mid A' \cap B) = 0.15$, $P(C \mid A \cap B') = 0.80$, and $P(C \mid A' \cap B') = 0.90$.}
+\begin{enumerate}
+\item[a.] \textbf{Find $P(A \cap B \cap C)$.}\\
+With the following formula:
+\begin{center}
+$P(B \mid A) = \frac{P(B \cap A)}{P(A)}$\\
+$P(A \cap B) = P(B \mid A)P(A) = (0.75)(0.3) = 0.225$ 
+\end{center}
+And the same formula again:
+\begin{center}
+$\boxed{P(A \cap B \cap C) = P(C \mid A \cap B)P(A \cap B) = (0.2)(0.225) = 0.045}$
+\end{center}
+\item[b.] \textbf{Find $P(B' \cap C)$.}\\
+I'm just not seeing it.
+\item[c.] \textbf{Find $P(C)$.}\\
+In order to get $P(C)$, it needs to be understood that $(A \cap B)$, $(A \cap B')$, $(A' \cap B)$,
+and $(A' \cap B')$ are disjoint and their sum is 1. Since we know $P(C \mid A \cap B)$, 
+$P(C \mid A \cap B')$, $P(C \mid A' \cap B)$, and $P(C \mid A' \cap B')$ we can use Bayes'
+Rule:\\
+$P(C) = P(A \cap B)P(C \mid A \cap B) + P(A \cap B')P(C \mid A \cap B') +
+P(A' \cap B)P(C \mid A' \cap B) + P(A' \cap B')P(C \mid A' \cap B')$\\
+We know $P(A \cap B) = .225$ from earlier. Next we must find $P(A \cap B') = 
+P(A) - P(A \cap B) = 0.075$.\\
+Now we need to know $P(B \cap A') = P(B \mid A')P(A')$.\\
+It is given that $P(B \mid A') = 0.20$ and we know that $P(A') = 1-P(A) = 0.7$. So 
+$P(B \cap A') = 0.14$.\\ We can find $P(A' \cap B') = P(A')-P(A' \cap B) = 0.56$.\\
+Now we can plug that all back into Bayes' Rule:
+\begin{center}
+$\boxed{P(C) = (0.225)(0.20)+(0.075)(0.80)+(0.14)(0.15)+(0.56)(0.90) = 0.63}$
 \end{center}
 \end{enumerate}
 
