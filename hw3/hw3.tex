@@ -20,9 +20,64 @@
 
 \maketitle
 
-\paragraph{}
+\paragraph{2.25 A certain shoe comes in 5 different styles with each style available 
+in 4 distinct colors. If the store wishes to display pairs of these shoes 
+showing all of its various styles and colors, how many different pairs would 
+the store have on display?\\}
+Well there are 20 different shoe designs. If each pair is to match, then there would
+be 20 pairs on display. However, the pairs don't need to match in which case you
+can use a different shoe for the left and right. You would only need to display
+10 pairs, still showing all 20 designs.
 \begin{center}
-$\boxed{}$
+$\boxed{10}$
 \end{center}
+
+\paragraph{2.28 A drug for the relief of asthma can be purchased from 5 different 
+manufacturers in liquid, tablet, or capsule form, all of which come in regular and 
+extra strength. How many different ways can a doctor prescribe the drug for a 
+patient suffering from asthma?}
+\begin{center}
+$\boxed{5 \times 3 \times 2 = 30}$
+\end{center}
+
+\paragraph{2.32}
+\begin{enumerate}
+\item[a.] \textbf{How many distinct permutations can be made from the letters of the word
+\emph{columns}?}
+\begin{center}
+$\boxed{7! = 5040}$
+\end{center}
+\item[b.] \textbf{How many of these permutations start with the letter \emph{m}?}\\
+Simply place the m in the first position, now 6-letter permutation.
+\begin{center}
+$\boxed{6! = 720}$
+\end{center}
+\end{enumerate}
+
+\paragraph{2.34}
+\begin{enumerate}
+\item[a.] \textbf{In how many ways can 6 people be lined up to get on a bus?}\\
+\begin{center}
+$\boxed{6! = 720}$
+\end{center}
+\item[b.] \textbf{If 3 specific persons, among 6, insist on following each other, how many 
+ways are possible?}\\
+Now we just group those 3 together as one person, leaving 3 others for a total of 4.
+\begin{center}
+$\boxed{4! = 24}$
+\end{center}
+\item[c.] \textbf{If 2 specific persons, among 6, refuse to follow each other, how many 
+ways are possible?}\\
+There are 30 ways to position 2 of the six people, and the following would be positions
+where one is following the other:
+\begin{verbatim}
+{1,2},{2,3},{3,4},{4,5},{5,6}
+\end{verbatim}
+So there are 25 ways to position the 2 specific persons that refuse to follow each other.
+There are 4 remaining people, so:
+\begin{center}
+$\boxed{25 \times 4! = 600}$
+\end{center}
+\end{enumerate}
 
 \end{document}
