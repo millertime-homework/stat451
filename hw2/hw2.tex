@@ -86,9 +86,10 @@ $P(A)-P(A \cap B) + P(B) - P(A \cap B)$\\
 $P(A) + P(B) - 2P(A \cap B) \blacksquare$
 
 \paragraph{10. A point $(x, y)$ is to be selected from the square S containing
-all points $(x, y)$ such that $0 \leq x \leq 1$ and $0 \leq y \leq 1$. Suppose that
-the probability that the selected point will belong to any specified subset of S is
-equal to the area of that subset. Find the probability of each of the following subsets:}
+all points $(x, y)$ such that $0 \leq x \leq 1$ and $0 \leq y \leq 1$. Suppose 
+that the probability that the selected point will belong to any specified subset 
+of S is equal to the area of that subset. Find the probability of each of the 
+following subsets:}
 \begin{enumerate}
 \item[a.] $(x-\frac{1}{2})^2 + (y-\frac{1}{2})^2 \geq \frac{1}{4}$\\
 This equation is the area above a semicircle within S. We can find this area by:
@@ -117,8 +118,8 @@ points, that is 100x100. Then for each of the 100 possible values of x, only one
 matches y. So there would be one for each value of y. Meaning 
 $\frac{100}{10000}$ or $\frac{1}{100}$.\\
 If, however, there were only 100 possible points, that is 10x10. Then for each
-of the 10 possible values of x, only one will match y. But this is true for each of
-the 10 values of y, so it is $\frac{10}{100}$ or $\frac{1}{10}$.\\
+of the 10 possible values of x, only one will match y. But this is true for each 
+of the 10 values of y, so it is $\frac{10}{100}$ or $\frac{1}{10}$.\\
 So it seems it would depend on the number of possible outcomes.\\
 \end{enumerate}
 
@@ -129,31 +130,34 @@ $\upvarsigma$\_$\upvarsigma$
 \pagebreak
 
 \paragraph{Text 2.79 A random sample of 200 adults are classified by sex and
-their level of education attained. If a person is picked at random from this group,
-find the probability that:\\}
+their level of education attained. If a person is picked at random from this 
+group, find the probability that:\\}
 \begin{enumerate}
-\item[a.] the person is a male, given that the person has a secondary education.\\
+\item[a.] the person is a male, given that the person has a secondary 
+education.\\
 78 people have a secondary education, from that there are 28 males.
 \begin{center}
 $\boxed{\frac{28}{200} = .14}$
 \end{center}
 
-\item[b.] the person does not have a college degree, given that the person is a female.\\
+\item[b.] the person does not have a college degree, given that the person is a 
+female.\\
 There are 112 females. Of them 95 do not have a degree.
 \begin{center}
 $\boxed{\frac{95}{200} = .475}$
 \end{center}
 \end{enumerate}
 
-\paragraph{Text 2.86 For married couples living in a certain suburb the probability 
-that the husband will vote on a bond referendum is 0.21, the probability that his wife
-will vote on the referendum is 0.28, and the probability that both the husband and the
-wife will vote is 0.15. What is the probability that:\\}
+\paragraph{Text 2.86 For married couples living in a certain suburb the 
+probability that the husband will vote on a bond referendum is 0.21, the 
+probability that his wife will vote on the referendum is 0.28, and the 
+probability that both the husband and the wife will vote is 0.15. What is the 
+probability that:\\}
 \begin{enumerate}
 \item[a.] at least one member of a married couple will vote\\
 Let $P(h)=0.21$ be the probability the husband will vote. Let $P(w)=0.28$ be the
-probability the wife will vote. Then, $P(h \cap w) = 0.15$ is the probability that both
-will vote. $P(h \cup w)$ is the probability that at least one will vote. 
+probability the wife will vote. Then, $P(h \cap w) = 0.15$ is the probability 
+that both will vote. $P(h \cup w)$ is the probability that at least one will vote. 
 \begin{center}
 $\boxed{P(h \cup w) = P(h) + P(w) - P(h \cap w) = 0.21+0.28-0.15 = 0.34}$
 \end{center}
@@ -173,6 +177,56 @@ $\boxed{P(h\mid w') = \frac{P(h \cap w')}{P(w')} = \frac{0.06}{0.72} = 0.08\bar3
 \end{center}
 \end{enumerate}
 
-\paragraph{Did not finish the last 3 questions that were assigned from the book.}
+\paragraph{Text 2.87 The probability that a vehicle entering the Luray Caverns 
+has Canadian license plates is 0.12; the probability that it is a camper is 
+0.28; and the probability that it is a camper with Canadian license plates is 
+0.09. What is the probability that:}
+\begin{enumerate}
+\item[a.] a camper entering the Luray Caverns has Canadian license plates?
+\begin{center}
+$\boxed{P(Canadian \mid camper) = \frac{P(Canadian \cap camper)}{P(camper)} = 
+\frac{0.09}{0.28} = 0.32143...}$
+\end{center}
+\item[b.] a vehicle with Canadian license plates entering the Luray Caverns is a 
+camper?
+\begin{center}
+$\boxed{P(camper \mid Canadian) = \frac{P(camper \cap Canadian)}{P(Canadian)} = 
+\frac{0.09}{0.12} = 0.75}$
+\end{center}
+\item[c.] a vehicle entering the Luray Caverns does not have Canadian plates or 
+is not a camper?\\
+Using DeMorgan's Law:
+\begin{center}
+$\boxed{P(Canadian' \cup camper') = P((Canadian \cap camper)') = 
+1 - P(Canadian \cap camper) = 1-0.09 = 0.91}$
+\end{center}
+\end{enumerate}
+
+\paragraph{Text 2.93 A town has 2 fire engines operating independently. The 
+probability that a specific engine is available when needed is 0.96.}
+\begin{enumerate}
+\item[a.] What is the probability that neither is available when needed?\\
+Let $P(A)$ represent the probability that engine 1 is available, and let $P(B)$ 
+represent the probability that engine 2 is available. We're given that 
+$P(A) = P(B) = 0.96$.
+\begin{center}
+$\boxed{(1 - P(A))(1 - P(B)) = 0.0016}$
+\end{center}
+\item[b.] What is the probability that a fire engine is available when needed?
+\begin{center}
+$\boxed{1-(1-P(A))(1-P(B)) = 0.9984}$
+\end{center}
+\end{enumerate}
+
+\paragraph{Text 2.94 The probability that Tom will be alive in 20 years is 0.7, 
+and the probability that Nancy will be alive in 20 years is 0.9. If we assume 
+independence for both, what is the probability that neither will be alive in 20 
+years?\\}
+Let $P(T)$ represent the probability that Tom will be alive in 20 years, and 
+let $P(N)$ represent the probability that Nancy will be alive in 20 years.. 
+We're given that $P(T) = 0.7$ and $P(N) = 0.9$.\\
+\begin{center}
+$\boxed{(1 - P(T))(1 - P(N)) = 0.03}$
+\end{center}
 
 \end{document}
