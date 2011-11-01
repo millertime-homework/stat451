@@ -1,0 +1,127 @@
+% STAT451 HW5
+
+\documentclass{article}
+\usepackage{anysize}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+\marginsize{2cm}{2cm}{2cm}{2cm}
+
+\title{STAT451 HW5}
+\author{Russell Miller}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+% 3.27, 3.29, 3.30, 3.36, 3.37, 3.39, 3.41, 3.51, 3.53, 3.55, and 3.56.         |
+
+\paragraph{3.27 The time to failure in hours of an important piece of electronic 
+equipment used in a manufactured DVD player has the density function}
+\begin{eqnarray*}
+f(x) = \left\{ \begin{array}{ll}
+	\left(\frac{1}{2000}\right)e^{\frac{-x}{2000}}, & x\geq 0,\\
+	0, & x<0.
+	\end{array} \right.
+\end{eqnarray*}
+\begin{enumerate}
+\item[\textbf{a.}] \textbf{Find $F(x)$.}
+\begin{eqnarray*}
+F(x) = \int f(x)dx = \left\{ \begin{array}{ll}
+	0, & x<0\\
+	-e^{\frac{-x}{2000}}, & x \geq 0
+	\end{array} \right.
+\end{eqnarray*}
+
+\item[\textbf{b.}] \textbf{Determine the probability that the component (and 
+thus the DVD player) lasts more than 1000 hours before the component needs to 
+be replaced.}
+\begin{eqnarray*}
+P(X>1000) = \int_{1000}^\infty \frac{e^{\frac{-x}{2000}}}{2000}dx = .6065
+\end{eqnarray*}
+
+\item[\textbf{c.}] \textbf{Determine the probability that the component fails
+before 2000 hours.}
+\begin{eqnarray*}
+P(X<2000) = \int_0^{2000} \frac{e^{\frac{-x}{2000}}}{2000}dx = .6321
+\end{eqnarray*}
+\end{enumerate}
+
+\paragraph{3.29 An important factor in solid missile fuel is the particle size 
+distribution. Significant problems occur if the particle sizes are too large. 
+From production data in the past, it has been determined that the particle size 
+(in micrometers) distribution is characterized by}
+\begin{eqnarray*}
+f(x) = \left\{ \begin{array}{ll}
+	3x^{-4}, & x>1,\\
+	0, & \mbox{elsewhere}
+	\end{array} \right.
+\end{eqnarray*}
+\begin{enumerate}
+\item[\textbf{a.}] \textbf{Verify that this is a valid density function.\\}
+From my notes, a Probability Density Function is any function $f(x)$ that
+satisfies:
+\begin{itemize}
+\item $f(x) \geq 0$ for all real x,
+\item $\int_{-\infty}^\infty f(x)dx = 1$,
+\item For event A\\
+	$P(x \in A) = \int_{x \in A} f(x)dx$
+\end{itemize}
+The first bullet is satisfied, there are no negative values of $f(x)$.
+The second bullet can be verified by
+\begin{eqnarray*}
+\int_1^\infty f(x)dx = \frac{-1}{\infty} - \frac{-1}{1^4} = 1
+\end{eqnarray*}
+Since we're not given any events or probabilities, this is sufficient.
+
+\pagebreak
+\item[\textbf{b.}] \textbf{Evaluate $F(x)$.}
+\begin{eqnarray*}
+F(x) = \left\{ \begin{array}{ll}
+	0, & x < 1\\
+	-x^{-3}, & x \geq 1
+	\end{array} \right.
+\end{eqnarray*}
+
+\item[\textbf{c.}] \textbf{What is the probability that a random particle 
+from the manufactured fuel exceeds 4 micrometers?}
+\begin{eqnarray*}
+P(X>4) = \int_{4}^\infty 3x^{-4}dx = \frac{1}{64}
+\end{eqnarray*}
+\end{enumerate}
+
+\paragraph{3.30 Measurements of scientific systems are always subject to
+variation, some more than others. There are many structures for measurement 
+error and statisticians spend a great deal of time modeling these errors. 
+Suppose the measurement error $X$ of a certain physical quantity is decided 
+by the density function}
+\begin{eqnarray*}
+f(x) = \left\{ \begin{array}{ll}
+	k(3-x^2), & -1 \leq x \leq 1,\\
+	0, & \mbox{elsewhere.}
+	\end{array} \right.
+\end{eqnarray*}
+\begin{enumerate}
+\item[\textbf{a.}] \textbf{Determine $k$ that renders $f(x)$ a valid density
+function.\\}
+In order for $f(x)$ to be a valid density function, the following must hold.
+\begin{eqnarray*}
+\int_{-1}^1 k(3-x^2)dx & = & 1\\
+\int_{-1}^1 (3k-kx^2)dx & = & 1\\
+\left. 3kx - \frac{x^3}{3k} \right|_{-1}^{1} & = & 1\\
+\left. k(3x - \frac{x^3}{3}) \right|_{-1}^{1} & = & 1\\
+\frac{8k}{3} - \frac{-8k}{3} & = & 1\\
+\frac{16k}{3} & = & 1\\
+k & = & \frac{3}{16}
+\end{eqnarray*}
+
+And we'll double check by plugging it in
+\begin{eqnarray*}
+\int_{-1}^1 \left(\frac{3}{16}\right)(3-x^2)dx & = & 1\\
+& &  \blacksquare
+\end{eqnarray*}
+
+\end{enumerate}
+\end{document}
