@@ -122,6 +122,360 @@ And we'll double check by plugging it in
 \int_{-1}^1 \left(\frac{3}{16}\right)(3-x^2)dx & = & 1\\
 & &  \blacksquare
 \end{eqnarray*}
-
 \end{enumerate}
+
+\pagebreak
+
+\paragraph{3.36 On a labratory assignment, if the equipment is working, the
+density function of the observed outcome, $X$, is}
+\begin{eqnarray*}
+f(x)= \left\{ \begin{array}{ll}
+	2(1-x), & 0<x<1,\\
+	0, & \mbox{otherwise}.
+	\end{array} \right.
+\end{eqnarray*}
+\begin{enumerate}
+\item[\textbf{a.}] \textbf{Calculate $P(X \leq \frac{1}{3})$.}
+\begin{eqnarray*}
+P(X \leq \frac{1}{3}) & = & F(\frac{1}{3})\\
+ & = & \int_{0}^{\frac{1}{3}} 2(1-x)dx\\
+ & = & \left. 2x-x^2 \right|_{0}^{\frac{1}{3}}\\
+ & = & \left(\frac{2}{3}-\frac{1}{9}\right) - 0\\
+ & = & \frac{5}{9}
+\end{eqnarray*}
+
+\item[\textbf{b.}] \textbf{What is the probability that $X$ will exceed 0.5?}
+\begin{eqnarray*}
+P(X>0.5) & = & F(1)-F(0.5)\\
+	& = & \int_{0.5}^{1} 2(1-x)dx\\
+	& = & \left. 2x-x^2 \right|_{0.5}^{1}\\
+	& = & 1 - \frac{3}{4}\\
+	& = & \frac{1}{4}
+\end{eqnarray*}
+
+\item[\textbf{c.}] \textbf{Given that $X \geq 0.5$, what is the probability 
+that $X$ will be less than 0.75?}
+\begin{eqnarray*}
+P(X<0.75 \mid X \geq 0.5) & = & \frac{P(0.5 \leq X < 0.75)}{P(X \geq 0.5)}
+\end{eqnarray*}
+
+Recall that part \textbf{b} asked for $P(X>0.5)$ which is the same as
+$P(X \geq 0.5)$.
+\begin{eqnarray*}
+	& = & \frac{\int_{0.5}^{0.75} 2(1-x)dx}{\frac{1}{4}}\\
+	& = & 4(\left. 2x-x^2 \right|_{0.5}^{0.75})\\
+	& = & 4\left(\left(\frac{6}{4}-\frac{9}{16}\right)-
+		\left(2-\frac{1}{4}\right)\right)\\
+	& = & 4\left(\frac{15}{16}-\frac{3}{4}\right)\\
+	& = & 4\left(\frac{3}{16}\right)\\
+	& = & \frac{3}{4}
+\end{eqnarray*}
+\end{enumerate}
+
+\pagebreak
+
+\paragraph{3.37 Determine the values of $c$ so that the following functions 
+represent joint probability distributions of the random variables $X$ and 
+$Y$.}
+\begin{enumerate}
+\item[\textbf{a.}] $f(x,y)=cxy$, for $x=1,2,3$; $y=1,2,3$\\
+Need the following to be true.
+\begin{eqnarray*}
+\sum\limits_x \sum\limits_y f(x,y) & = & 1
+\end{eqnarray*}
+
+Plugging in $f(x,y)$.
+\begin{eqnarray*}
+\sum\limits_{x=1}^3 \sum\limits_{y=1}^3 cxy & = & 1\\
+c \sum\limits_{x=1}^3 \sum\limits_{y=1}^3 xy & = & 1\\
+c((1)(1)+(1)(2)+(1)(3)+(2)(1)+(2)(2)+(2)(3)+(3)(1)+(3)(2)+(3)(3)) & = & 1\\
+c & = & \frac{1}{36}
+\end{eqnarray*}
+
+\item[\textbf{b.}] $f(x,y)=c\mid x-y\mid$, for $x=-2,0,2$; $y=-2,3$\\
+\begin{eqnarray*}
+c(\mid-2-(-2)\mid+\mid-2-3\mid+\mid0-(-2)\mid+\mid0-3\mid+\mid2-(-2)\mid+
+	\mid2-3\mid) & = & 1\\
+c(0+5+2+3+4+1) & = & 1\\
+c & = & \frac{1}{15}
+\end{eqnarray*}
+\end{enumerate}
+
+\paragraph{3.39 From a sack of fruit containing 3 oranges, 2 apples, and 
+3 bananas, a random sample of 4 pieces of fruit is selected. If $X$ is the 
+number of oranges and $Y$ is the number of apples in the sample, find}
+\begin{enumerate}
+\item[\textbf{a.}] \textbf{the joint probability distribution of $X$ and 
+$Y$}\\
+There are ${8 \choose 4} = 70$ ways to take a random sample of 4 pieces of 
+fruit from the sack containing a total of 8. This will be the denominator
+for all probabilities in the table. Now we use the product rule to choose
+the given number of each fruit.\\
+For example, the ways to get 2 oranges and 2 apples is 
+${3 \choose 2}{2 \choose 2} = 3$ and the probability of this happening is
+therefore $\frac{3}{70}$.\\
+For the case when $X=0$ and $Y=0$, this assumes the only remaining fruit
+are bananas, but it's impossible to select 4 fruit because there are only
+3 bananas. So the probability of this happening is 0.\\
+Another type of case is where $0<X+Y<4$. We will need to borrow from the
+bananas to complete these, by multiplying ${3 \choose x}{2 \choose y}
+{3 \choose 4-(x+y)}$ and dividing that by 70.
+\begin{center}
+\begin{tabular}{|c|c|c c c c|}
+\hline
+   & & & x & &\\
+\hline
+   &   & 0 & 1 & 2 & 3\\
+\hline
+   & 0 & 0 & $\frac{3}{70}$ & $\frac{9}{70}$ & $\frac{3}{70}$\\
+   &&&&&\\
+ y & 1 & $\frac{2}{70}$ & $\frac{18}{70}$ & $\frac{18}{70}$ & $\frac{2}{70}$\\
+   &&&&&\\
+   & 2 & $\frac{3}{70}$ & $\frac{9}{70}$ & $\frac{3}{70}$ & 0\\
+\hline
+\end{tabular}
+\end{center}
+
+\pagebreak
+\item[\textbf{b.}] \textbf{$P[(X,Y) \in A]$, where $A$ is the region that
+is given by $\{(x,y) \mid x+y \leq 2\}$}\\
+The values $(x,y)$ that satisfy this equation are 
+(0,0),(0,1),(0,2),(1,0),(1,1),(2,0). 
+Their values from the table are 
+$0,\frac{3}{70},\frac{9}{70},\frac{2}{70},\frac{18}{70},\frac{3}{70}$.
+The total probability for $A$ is the sum of these.
+\begin{center}
+$P[(X,Y) \in A] = \frac{35}{70} = \frac{1}{2}$
+\end{center}
+\end{enumerate}
+
+\paragraph{3.41 A candy company distributes boxes of chocolates with a 
+mixture of creams, toffees, and cordials. Suppose that the weight of 
+each box is 1 kilogram, but the individual weights of the creams, 
+toffees, and cordials vary from box to box. For a randomly selected box, 
+let $X$ and $Y$ represent the weights of the creams and the toffees, 
+respectively, and suppose that the joint density function of these 
+variables is}
+\begin{eqnarray*}
+f(x,y)= \left\{ \begin{array}{lll}
+	24xy, & 0 \leq x \leq 1, & 0 \leq y \leq 1,\\
+	& x + y \leq 1,\\
+	0, & \mbox{elsewhere.}
+	\end{array} \right.
+\end{eqnarray*}
+\begin{enumerate}
+\item[\textbf{a.}] \textbf{Find the probability that in a given box 
+the cordials account for more than 1/2 of the weight.}
+\begin{eqnarray*}
+P(X+Y<\frac{1}{2}) & = & \int_0^{\frac{1}{2}} \int_0^{\frac{1}{2}-y} 24xydxdy\\
+	& = & \int_0^{\frac{1}{2}} 24y \left( \int_0^{\frac{1}{2}-y} xdx \right)dy\\
+	& = & \int_0^{\frac{1}{2}} 24y\frac{(2y-1)^2}{8}dy\\
+	& = & 3 \int_0^{\frac{1}{2}} y(2y-1)^2dy\\
+	& = & \frac{1}{16}
+\end{eqnarray*}
+
+\item[\textbf{b.}] \textbf{Find the marginal density for the weight
+of the creams.}\\
+Let $f_1(x)$ represent the marginal density for $X$.
+\begin{eqnarray*}
+f_1(x) & = & \int_{-\infty}^\infty f(x,y)dy\\
+	& = & \int_0^{1-x} 24xydy\\
+	& = & 24x \int_0^{1-x} ydy\\
+	& = & 24x \frac{(x-1)^2}{2}\\
+	& = & 12x(x-1)^2\\
+f_1(x) & = & \left\{ \begin{array}{ll}
+	12x(x-1)^2, & 0 \leq x \leq 1,\\
+	0, & \mbox{elsewhere}
+	\end{array} \right.
+\end{eqnarray*}
+
+\pagebreak
+
+\item[\textbf{c.}] \textbf{Find the probability that the weight of 
+the toffees in a box is less than 1/8 of a kilogram if it 
+is known that creams constitute 3/4 of the weight.}\\
+First we need to find $f(y\mid x)$.
+\begin{eqnarray*}
+f(y\mid x) & = & \frac{f(x,y)}{f_1(x)}\\
+	& = & \frac{24xy}{12x(x-1)^2}\\
+	& = & \frac{12y}{(x-1)^2}\\
+P(Y<\frac{1}{8}\mid X=\frac{3}{4}) & = & \int_0^{\frac{1}{8}} 
+		\frac{12y}{((\frac{3}{4})-1)^2}dy\\
+	& = & \int_0^\frac{1}{8} 192ydy\\
+	& = & \frac{3}{2}
+\end{eqnarray*}
+\end{enumerate}
+
+\paragraph{3.51 Consider an experiment that consists of 2 rolls of a 
+balanced die. If $X$ is the number of 4s and $Y$ is the number of 5s 
+obtained in the 2 rolls of the die, find}
+\begin{enumerate}
+\item[\textbf{a.}] \textbf{the joint probability distribution of $X$ 
+and $Y$;}\\
+The probability of rolling 2 dice and not getting a 4 or a 5 on 
+either roll is $\left(\frac{4}{6}\right)^2$ because of the other 4
+possible rolls each time. To get a 4 but not a 5, or a 5 but not a 4
+there are two ways: getting the 4 first (or 5), or second. The
+probability of rolling a 4 is just $\frac{1}{6}$, then you cannot roll
+a 5 or another 4, so multiply by $\frac{4}{6}$. Considering the reverse
+order, you can just multiply this by 2. Getting the same roll twice
+is just $\left(\frac{1}{6}\right)^2$. Getting one of each is also
+$\left(\frac{1}{6}\right)^2$, but you multiply by 2 for the reverse
+order.
+\begin{center}
+\begin{tabular}{|c|c|c c c|}
+\hline
+   & & & x &\\
+\hline
+   &   & 0 & 1 & 2\\
+\hline
+   & 0 & $\frac{16}{36}$ & $\frac{8}{36}$ & $\frac{1}{36}$\\
+   &&&&\\
+ y & 1 & $\frac{8}{36}$ & $\frac{2}{36}$ & 0\\
+   &&&&\\
+   & 2 & $\frac{1}{36}$ & 0 & 0\\
+\hline
+\end{tabular}
+\end{center}
+
+\item[\textbf{b.}] \textbf{$P[(X,Y)\in A]$, where $A$ is the region
+$\{(x,y)\mid 2x+y<3\}$.}\\
+The values $(x,y)$ that satisfy this equation are 
+(0,0),(0,1),(0,2),(1,0). Their values from the table are
+$\frac{16}{36},\frac{8}{36},\frac{1}{36},\frac{8}{36}$. Just need to
+sum them.
+\begin{center}
+$P[(X,Y) \in A] = \frac{33}{36} = \frac{11}{12}$
+\end{center}
+\end{enumerate}
+
+\pagebreak
+
+\paragraph{3.53 Three cards are drawn without replacement from the 12 
+face cards (jacks, queens, and kings) of an ordinary deck of 52 
+playing cards. Let $X$ be the number of kings selected and $Y$ the 
+number of jacks. Find}
+\begin{enumerate}
+\item[\textbf{a.}] \textbf{the joint probability distribution of $X$ 
+and $Y$;}\\
+The probability of drawing a queen on the first card is 
+$\frac{4}{12}$. The probability of drawing a second queen from the
+remaining cards is $\frac{3}{11}$, and a third $\frac{2}{10}$. This
+product is the probability of getting no kings or jacks. There are 3
+ways to get one jack and no kings, because you can get it on the 
+first, second, or third draw. The probability of drawing it first is
+$\frac{4}{12}$, and the probability of not getting a king or jack 
+next, since there are still 4 kings and 3 jacks, is $\frac{4}{11}$.
+This means it had to be a queen, of which there were 4. Now there are
+3 for the final draw, resulting in $\frac{3}{10}$. This sort of
+calculation will continue in the following table.
+\begin{center}
+\begin{tabular}{c|c|c}
+Composition & Resulting Hand & Probability\\
+\hline
+0J/0K & QQQ & $\frac{4}{12}\times\frac{3}{11}\times\frac{2}{10}=\frac{1}{55}$\\
+\hline
+1J/0K & JQQ & $\frac{4}{12}\times\frac{4}{11}\times\frac{3}{10}=\frac{2}{55}$\\
+	& QJQ & $\frac{4}{12}\times\frac{4}{11}\times\frac{3}{10}=\frac{2}{55}$\\
+	& QQJ & $\frac{4}{12}\times\frac{3}{11}\times\frac{4}{10}=\frac{2}{55}$\\
+\hline
+2J/0K & JJQ & $\frac{4}{12}\times\frac{3}{11}\times\frac{4}{10}=\frac{2}{55}$\\
+	& JQJ & $\frac{4}{12}\times\frac{4}{11}\times\frac{3}{10}=\frac{2}{55}$\\
+	& QJJ & $\frac{4}{12}\times\frac{4}{11}\times\frac{3}{10}=\frac{2}{55}$\\
+\hline
+3J/0K & JJJ & $\frac{4}{12}\times\frac{3}{11}\times\frac{2}{10}=\frac{1}{55}$\\
+\hline
+0J/1K & KQQ & $\frac{4}{12}\times\frac{4}{11}\times\frac{3}{10}=\frac{2}{55}$\\
+	& QKQ & $\frac{4}{12}\times\frac{4}{11}\times\frac{3}{10}=\frac{2}{55}$\\
+	& QQK & $\frac{4}{12}\times\frac{3}{11}\times\frac{4}{10}=\frac{2}{55}$\\
+\hline
+1J/1K & JKQ & $\frac{4}{12}\times\frac{4}{11}\times\frac{4}{10}=\frac{8}{165}$\\
+	& JQK & $\frac{4}{12}\times\frac{4}{11}\times\frac{4}{10}=\frac{8}{165}$\\
+	& QJK & $\frac{4}{12}\times\frac{4}{11}\times\frac{4}{10}=\frac{8}{165}$\\
+	& KJQ & $\frac{4}{12}\times\frac{4}{11}\times\frac{4}{10}=\frac{8}{165}$\\
+	& KQJ & $\frac{4}{12}\times\frac{4}{11}\times\frac{4}{10}=\frac{8}{165}$\\
+	& QKJ & $\frac{4}{12}\times\frac{4}{11}\times\frac{4}{10}=\frac{8}{165}$\\
+\hline
+2J/1K & JJK & $\frac{4}{12}\times\frac{3}{11}\times\frac{4}{10}=\frac{2}{55}$\\
+	& JKJ & $\frac{4}{12}\times\frac{4}{11}\times\frac{3}{10}=\frac{2}{55}$\\
+	& KJJ & $\frac{4}{12}\times\frac{4}{11}\times\frac{3}{10}=\frac{2}{55}$\\
+\hline
+3J/1K & --- & 0\\
+\hline
+0J/2K & KKQ & $\frac{4}{12}\times\frac{3}{11}\times\frac{4}{10}=\frac{2}{55}$\\
+	& KQK & $\frac{4}{12}\times\frac{4}{11}\times\frac{3}{10}=\frac{2}{55}$\\
+	& QKK & $\frac{4}{12}\times\frac{4}{11}\times\frac{3}{10}=\frac{2}{55}$\\
+\hline
+1J/2K & KKJ & $\frac{4}{12}\times\frac{3}{11}\times\frac{4}{10}=\frac{2}{55}$\\
+	& KJK & $\frac{4}{12}\times\frac{4}{11}\times\frac{3}{10}=\frac{2}{55}$\\
+	& JKK & $\frac{4}{12}\times\frac{4}{11}\times\frac{3}{10}=\frac{2}{55}$\\
+\hline
+2J/2K & --- & 0\\
+\hline
+3J/2K & --- & 0\\
+\hline
+0J/3K & KKK & $\frac{4}{12}\times\frac{3}{11}\times\frac{2}{10}=\frac{1}{55}$\\
+\hline
+1J/3K & --- & 0\\
+\hline
+2J/3K & --- & 0\\
+\hline
+3J/3K & --- & 0\\
+\end{tabular}\\
+\begin{tabular}{|c|c|c c c c|}
+\hline
+   f(x,y) &&& x &&\\
+\hline
+   &   & 0 & 1 & 2 & 3\\
+\hline
+   & 0 & $\frac{1}{55}$ & $\frac{6}{55}$ & $\frac{6}{55}$ & $\frac{1}{55}$\\
+   &&&&&\\
+ y & 1 & $\frac{6}{55}$ & $\frac{16}{55}$ & $\frac{6}{55}$ & 0\\
+   &&&&&\\
+   & 2 & $\frac{6}{55}$ & $\frac{6}{55}$ & 0 & 0\\
+   &&&&&\\
+   & 3 & $\frac{1}{55}$ & 0 & 0 & 0\\
+\hline
+\end{tabular}
+\end{center}
+\item[\textbf{b.}] \textbf{$P[(X,Y)\in A]$, where $A$ is the region
+$\{(x,y)\mid x+y \geq 2\}$.}\\
+The values $(x,y)$ that satisfy this equation are 
+(1,1),(1,2),(1,3),(2,0),(2,1),(2,2),(2,3),(3,0),(3,1),(3,2),(3,3).
+Their values from the table are $\frac{16}{55},\frac{6}{55},\frac{6}{55},
+\frac{6}{55},\frac{6}{55},\frac{1}{55},\frac{1}{55},0,0,0,0,0,0$. Just need
+the sum of them.
+\begin{center}
+$P[(X,Y)\in A] = \frac{42}{55}$
+\end{center}
+\end{enumerate}
+
+\paragraph{3.55 Given the joint density function}
+\begin{eqnarray*}
+f(x,y) = \left\{ \begin{array}{lll}
+	\frac{6-x-y}{8}, & 0<x<2, & 2<y<4,\\
+	0, & \mbox{elsewhere,}
+	\end{array} \right.
+\end{eqnarray*}
+\textbf{find $P(1<Y<3 \mid X=1)$.}
+\begin{eqnarray*}
+P(1<Y<3 \mid X=1) = \int_2^3 g(y \mid X=1)dy
+\end{eqnarray*}
+Let $f_1(x)$ be the marginal of $X$.
+\begin{eqnarray*}
+f_1(x) & = & \int_{-\infty}^\infty f(x,y)dy\\
+	& = & \int_2^4 \frac{6-x-y}{8}dy\\
+	& = & \left. \frac{6-x}{8}y-\frac{y^2}{16} \right|_2^4\\
+	& = & \left( \frac{4(6-x)}{8}-1\right)-
+		\left(\frac{2(6-x)}{8}-\frac{1}{4}\right)\\
+	& = & \frac{3-x}{4}\\
+g(y\mid X=1) & = & \frac{f(x,y)}{f_1(x)}\\
+	& = & \frac{\frac{6-1-y}{8}}{\frac{1}{2}}\\
+	& = & \frac{5-y}{4}\\
+P(1<Y<3\mid X=1) & = & \int_2^3 \frac{5-y}{4}dy\\
+	& = & \left. \frac{5y}{4}-\frac{y^2}{8}\right|_2^3\\
+	& = & \frac{15}{4}-\frac{9}{8}-\frac{10}{4}+\frac{4}{8}\\
+	& = & \frac{5}{8}
+\end{eqnarray*}
+
 \end{document}
