@@ -1,0 +1,489 @@
+% STAT451 HW6
+
+\documentclass{article}
+\usepackage{anysize}
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+\marginsize{2cm}{2cm}{2cm}{2cm}
+
+\title{STAT451 HW6}
+\author{Russell Miller}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+% 4.39, 4.41, 4.42, 4.44, 4.45, 4.48, 4.51, 4.59, 4.60, 4.63, 4.67, 4.69, 4.73, |
+% 4.77, 4.81, 4.91
+
+\paragraph{4.39 The total number of hours, in units of 100 hours, that a family 
+runs a vacuum cleaner over a period of one year is a random variable $X$ having 
+the density function given in Exercise 4.15 on page 114. Find the variance of 
+$X$.}
+\begin{eqnarray*}
+f(x) = \left\{\begin{array}{ll}
+	x,& 0<x<1,\\
+	2-x,& 1\leq x<2,\\
+	0,& \mbox{elsewhere}
+	\end{array}\right.
+\end{eqnarray*}
+Exercise 4.15 asked for the average number of hours per year that families run 
+their vacuum cleaners. This is also known as $E[X]$. We found that
+\begin{eqnarray*}
+E[X] = 1
+\end{eqnarray*}
+The other piece we will need is $E[X^2]$. By the law of the unconscious 
+statistician, we can let $g(X)=X^2$ and find $E[g(X)]$.
+\begin{eqnarray*}
+E[g(X)]=E[X^2] & = & \int_0^1 (x^2)xdx + \int_1^2 (x^2)(2-x)dx\\
+	& = & \int_0^1 x^3dx + \int_1^2 (2x^2-x^3)dx\\
+	& = & \left.\frac{x^4}{4}\right|_0^1 + \left.\left(\frac{2x^3}{3}-
+				\frac{x^4}{4}\right)\right|_1^2\\
+	& = & \frac{1}{4}+\left(\frac{16}{3}-4\right)-
+				\left(\frac{2}{3}-\frac{1}{4}\right)\\
+	& = & \frac{1}{4}+\frac{4}{3}-\frac{5}{12}\\
+	& = & \frac{7}{6}
+\end{eqnarray*}
+And we have the variance
+\begin{eqnarray*}
+V[X] & = & E[X^2]-E[X]^2\\
+	& = & \frac{7}{6}-1\\
+	& = & \boxed{\frac{1}{6}}
+\end{eqnarray*}
+
+\pagebreak
+
+\paragraph{4.41 Find the standard deviation of the random variable 
+$g(X)=(2X+1)^2$ in Exercise 4.17 on page 114.}
+\begin{center}\begin{tabular}{c | c c c}
+$x$    & -3  & 6   & 9\\
+\hline
+$f(x)$ & 1/6 & 1/2 & 1/3
+\end{tabular}\end{center}
+Exercise 4.17 asked for $\mu_{g(x)}$. We found that it was
+\begin{eqnarray*}
+\mu_{g(x)} = E[g(X)] & = & \sum_{x=-3}^9 (2x+1)^2f(x)\\
+	& = & (25)\left(\frac{1}{6}\right)+(169)\left(\frac{1}{2}\right)+
+			(361)\left(\frac{1}{3}\right)\\
+	& = & \frac{25+507+722}{6}\\
+	& = & 209
+\end{eqnarray*}
+We're also going to need $E[(g(X))^2]$.
+\begin{eqnarray*}
+E[(g(X))^2] & = & (625)\left(\frac{1}{6}\right)+
+			(28561)\left(\frac{1}{2}\right)+
+			(130321)\left(\frac{1}{3}\right)\\
+	& = & 57825
+\end{eqnarray*}
+Now we have the variance
+\begin{eqnarray*}
+\sigma^2=V[g(X)] & = & E[(g(X))^2]-E[g(X)]^2\\
+	& = & 57825 - 209^2\\
+	& = & 14144
+\end{eqnarray*}
+And the standard deviation is
+\begin{eqnarray*}
+\sigma & = & \sqrt{\sigma^2}\\
+	& = & \boxed{118.9}
+\end{eqnarray*}
+
+\paragraph{4.42 Using the results of Exercise 4.21 on page 114, find the 
+variance of $g(X)=X^2$, where $X$ is a random variable having the density 
+function given in Exercise 4.12 on page 113.}
+\begin{eqnarray*}
+f(x)=\left\{\begin{array}{ll}
+	2(1-x), & 0<x<1,\\
+	0, & \mbox{elsewhere}
+	\end{array}\right.
+\end{eqnarray*}
+The solution of 4.21 was the average, or $E[g(X)]$.
+\begin{eqnarray*}
+E[g(X)] = E(X^2) & = & \int_0^1 (x^2)2(1-x)dx\\
+	& = & \int_0^1 2(x^2-x^3)dx\\
+	& = & \frac{1}{6}
+\end{eqnarray*}
+We need to square that.
+\begin{eqnarray*}
+E[g(X)^2] = E(X^4) & = & \int_0^1 (x^4)2(1-x)dx\\
+	& = & \int_0^1 2(x^4-x^5)dx\\
+	& = & \frac{1}{15}
+\end{eqnarray*}
+Now we can calculate variance.
+\begin{eqnarray*}
+V[g(X)] & = & E[g(X)^2]-E[g(X)]^2\\
+	& = & \frac{1}{15}-\left(\frac{1}{6}\right)^2\\
+	& = & \boxed{\frac{7}{180} \approx .0389}
+\end{eqnarray*}
+
+%                                                                               |
+
+\paragraph{4.44 Find the covariance of the random variables $X$ and $Y$ of 
+Exercise 3.39 on page 101.\\}
+Here's the table from the joint probability function $f(x,y)$, adding in the 
+marginal values.
+\begin{center}
+\begin{tabular}{r|c c c c|c}
+          & & x & & &\\
+ $f(x,y)$ & 0 & 1 & 2 & 3 & $f_2(y)$\\
+\hline
+       0 & 0 & $\frac{3}{70}$ & $\frac{9}{70}$ & $\frac{3}{70}$ & 
+       													    $\frac{15}{70}$\\
+       &&&&\\
+y$\;\;\;$1 & $\frac{2}{70}$ & $\frac{18}{70}$ & $\frac{18}{70}$ & 
+											$\frac{2}{70}$ & $\frac{40}{70}$\\
+       &&&&\\
+       2 & $\frac{3}{70}$ & $\frac{9}{70}$ & $\frac{3}{70}$ & 0 & 
+       													     $\frac{15}{70}$\\
+	   &&&&\\
+\hline
+$f_1(x)$ & $\frac{5}{70}$ & $\frac{30}{70}$ & $\frac{30}{70}$ & $\frac{5}{70}$ &
+																		1
+\end{tabular}
+\end{center}
+Now the first thing we'll need is $\mu_X$
+\begin{eqnarray*}
+\mu_X = \sum_{x=0}^3 xf_1(x) = (0)\left(\frac{5}{70}\right)+
+							(1)\left(\frac{30}{70}\right)+
+							(2)\left(\frac{30}{70}\right)+
+							(3)\left(\frac{5}{70}\right)
+							= \frac{3}{2}
+\end{eqnarray*}
+And, of course, $\mu_Y$
+\begin{eqnarray*}
+\mu_Y = \sum_{y=0}^2 yf_2(y) = (0)\left(\frac{15}{70}\right)+
+							(1)\left(\frac{40}{70}\right)+
+							(2)\left(\frac{15}{70}\right)
+							= 1
+\end{eqnarray*}
+We also need $E[XY]$
+\begin{eqnarray*}
+E[XY] = \sum_{x=0}^3\sum_{y=0}^2 xyf(x,y) & = & (0)(1)f(0,1)+
+				(0)(2)f(0,2) + (1)(0)f(1,0) +\\
+				& & (1)(1)f(1,1) + (1)(2)f(1,2) + (2)(0)f(2,0) +\\
+				& & (2)(1)f(2,1) + (2)(2)f(2,2) + (3)(0)f(3,0) +\\
+				& & (3)(1)f(3,1) = \frac{9}{7}
+\end{eqnarray*}
+And we put it all together to get the covariance.
+\begin{eqnarray*}
+\sigma_{XY} = E[XY] - \mu_X\mu_Y = \frac{9}{7}-\left(\frac{3}{2}\right)(1)
+	= \boxed{-\frac{3}{14}}
+\end{eqnarray*}
+
+\paragraph{4.45 Find the covariance of the random variables $X$ and $Y$ of 
+Exercise 3.49 on page 102.\\}
+Alright, here goes $f(x,y)$, $f_1(x)$, $f_2(y)$, $\mu_X$, $\mu_Y$, $E[XY]$.
+\begin{center}
+\begin{tabular}{r|c c c|c}
+           &      &  x   &      &\\
+$f(x,y)$   &  1   &  2   &  3   & $f_2(y)$\\
+\hline
+         1 & 0.05 & 0.05 & 0.1  & 0.2\\
+y$\;\;\;$2 & 0.05 & 0.1  & 0.35 & 0.5\\
+         3 & 0    & 0.2  & 0.1  & 0.3\\
+\hline
+$f_1(x)$   & 0.1  & 0.35 & 0.55 & 1
+\end{tabular}
+\end{center}
+\begin{eqnarray*}
+\mu_X & = & \sum_{x=1}^3 xf_1(x) = (1)(.1) + (2)(.35) + (3)(.55) = 2.45\\
+\mu_Y & = & \sum_{y=1}^3 yf_2(y) = (1)(.2) + (2)(.5) + (3)(.5) = 2.1\\
+E[XY] & = & \sum_{x=1}^3\sum_{y=1}^3 xyf(x,y) = (1)(1)f(1,1) + (1)(2)f(1,2)+
+				(1)(3)f(1,3) +\\
+				& & (2)(1)f(2,1) + (2)(2)f(2,2) + (2)(3)f(2,3) +\\
+				& & (3)(1)f(3,1) + (3)(2)f(3,2) + (3)(3)f(3,3)\\
+				& = & 5.15\\
+\sigma_{XY} & = & E[XY] - \mu_X\mu_Y = 5.15-(2.45)(2.1) = \boxed{0.005}
+\end{eqnarray*}
+
+\paragraph{4.48 Given a random variable $X$, with standard deviation $\sigma_X$ 
+and a random variable $Y = a+bX$, show that if $b<0$, the correlation 
+coefficient $\rho_{XY} = -1$, and if $b>0$, $\rho_{XY} = 1$.}
+\begin{eqnarray*}
+\rho_{XY} = \frac{\sigma_{XY}}{\sigma_X\sigma_Y} & = & 
+	\frac{E[XY]-E[X]E[Y]}{\sqrt{E[X^2]-E[X]}\sqrt{E[Y^2]-E[Y]}}\\
+	& = & \frac{E[X(a+bX)]-E[X]E[a+bX]}{\sqrt{E[X^2]-E[X]}
+					\sqrt{E[(a+bX)^2]-E[a+bX]}}\\
+	& = & \frac{E[Xa+bX^2]-bE[X]^2}{V[X]^2\sqrt{E[a^2+2abX+b^2X^2]-bE[X]}}\\
+	& = & \frac{aE[X]+bE[X^2]-bE[X]^2}{V[X]^2\sqrt{2abE[X]+b^2E[X^2]-bE[X]}}\\
+	& = & \frac{aE[X]+bV[X]}{V[X]^2\sqrt{b(2aE[X]+bE[X^2]-E[X])}}
+\end{eqnarray*}
+I'm dizzy, I give up.
+
+%                                                                               |
+
+\paragraph{4.51 Referring to Exercise 4.35 on page 122, find the mean and 
+variance of the discrete random variable $Z=3X-2$, when $X$ represents the 
+number of errors per 100 lines of code.}
+\begin{center}\begin{tabular}{c|c c c c c}
+$x$    & 2    & 3    & 4   & 5   & 6\\
+\hline
+$f(x)$ & 0.01 & 0.25 & 0.4 & 0.3 & 0.04
+\end{tabular}\end{center}
+\begin{eqnarray*}
+\mu_Z = E[3X-2] & = & \sum_{x=2}^6 (3x-2)f(x)\\
+	& = & (4\times0.01) + (7\times0.25) + (10\times0.4) + (13\times0.3) + 
+		(16\times0.04)\\
+	& = & \boxed{10.33} \leftarrow\mbox{ mean}\\
+E[(3X-2)^2] & = & \sum_{x=2}^6 (3x-2)^2f(x)\\
+	& = & (16\times0.01) + (49\times0.25) + (100\times0.4) + (169\times0.3) + 
+		(256\times0.04)\\
+	& = & 113.35\\
+\sigma_Z^2 = E[Z^2]-E[Z]^2 & = & 113.35-10.33^2\\
+	& = & \boxed{6.6411} \leftarrow\mbox{ variance}
+\end{eqnarray*}
+
+\pagebreak
+
+\paragraph{4.59 Use Theorem 4.7 to evaluate $E[2XY^2-X^2Y]$ for the joint 
+probability distribution shown in Table 3.1 on page 92.}
+\begin{center}
+Table 3.1 Joint Probability Distribution\\
+\begin{tabular}{r|c c c|c}
+& & $x$ &\\
+$f(x,y)$ & 0 & 1 & 2 & $f_2(y)$\\
+\hline
+0 & $\frac{3}{28}$ & $\frac{9}{28}$ & $\frac{3}{28}$ & $\frac{15}{28}$\\
+ & & & &\\
+$y\;\;\;\;1$ & $\frac{3}{14}$ & $\frac{3}{14}$ & 0 & $\frac{3}{7}$\\
+ & & & &\\
+2 & $\frac{1}{28}$ & 0 & 0 & $\frac{1}{28}$\\
+ & & & &\\
+\hline
+$f_1(x)$ & $\frac{5}{14}$ & $\frac{15}{28}$ & $\frac{3}{28}$ & 1
+\end{tabular}\end{center}
+By Theorem 4.7 we see that we can rewrite this as
+\begin{eqnarray*}
+E[2XY^2-X^2Y] = E[2XY^2]-E[X^2Y]
+\end{eqnarray*}
+First we'll find $E[2XY^2]$
+\begin{eqnarray*}
+E[2XY^2] = \sum_{x=0}^2\sum_{y=0}^2 2xy^2f(x,y) = 
+	2(0)(0^2)\left(\frac{3}{28}\right) + 2(0)(1^2)\left(\frac{3}{14}\right) +\\ 
+	2(0)(2^2)\left(\frac{1}{28}\right) + 2(1)(0^2)\left(\frac{9}{28}\right) +
+	2(1)(1^2)\left(\frac{3}{14}\right) + 2(2)(0^2)\left(\frac{3}{28}\right)
+	= \frac{3}{7}
+\end{eqnarray*}
+Next $E[X^2Y]$
+\begin{eqnarray*}
+E[X^2Y] = \sum_{x=0}^2\sum_{y=0}^2 x^2yf(x,y) = 
+	(0^2)(0)\left(\frac{3}{28}\right) + (0^2)(1)\left(\frac{3}{14}\right) +\\
+	(0^2)(2)\left(\frac{1}{28}\right) + (1^2)(0)\left(\frac{9}{28}\right) +
+	(1^2)(1)\left(\frac{3}{14}\right) + (2^2)(0)\left(\frac{3}{28}\right)
+	= \frac{3}{14}
+\end{eqnarray*}
+And the grande finale
+\begin{eqnarray*}
+E[2XY^2]-E[X^2Y] = \frac{3}{7}-\frac{3}{14}=\boxed{\frac{3}{14}}
+\end{eqnarray*}
+
+\paragraph{4.60 Seventy new jobs are opening up at an automobile manufacturing 
+plant, but 1000 applicants show up for the 70 positions. To select the best 70 
+from among the applicants, the company gives a test that covers mechanical 
+skill, manual dexterity, and mathematical ability. The mean grade on this test 
+turns out to be 60, and the scores have a standard deviation 6. Can a person 
+who has an 84 score count on getting one of the jobs? [$Hint$: Use Chebyshev's 
+theorem.] Assume that the distribution is symmetric about the mean.\\}
+We can see that someone who scores an 84 is 4 standard deviations above the 
+mean grade. By Chebyshev's Theorem we know that
+\begin{eqnarray*}
+P(\mu-k\sigma<X<\mu+k\sigma) & \geq & 1-\frac{1}{k^2}\\
+P(60-4\times6<X<60+4\times6) & \geq & 1-\frac{1}{4^2}
+\end{eqnarray*}
+But the part we care about is
+\begin{eqnarray*}
+P(X<84) \geq 0.9375
+\end{eqnarray*}
+So scoring an 84 means only 0.0625 of the scores are as good. So because the top
+0.07 of the applicants are going to get a job, you could certainly count on 
+getting one.
+
+%                                                                               |
+
+\paragraph{4.63 Suppose that you roll a fair 10-sided die (0,1,2,...,9) 500 
+times. Using Chebyshev's theorem, compute the probability that the sample mean, 
+$X$ is between 4 and 5.\\}
+I've never seen a die with a zero, but any way...
+\begin{eqnarray*}
+\mu & = & \sum_{x=0}^9 xf(x) = (45)\left(\frac{1}{10}\right) = 4.5\\
+E[X^2] & = & \sum_{x=0}^9 x^2f(x) = (285)\left(\frac{1}{10}\right) = 28.5\\
+\sigma^2 & = & 28.5-(4.5)^2 = 8.25\\
+\sigma & = & \sqrt{\sigma} \approx 2.87
+\end{eqnarray*}
+Now we're ready to use Chebyshev's theorem.
+\begin{eqnarray*}
+P(\mu-k\sigma<X<\mu+k\sigma) & \geq & 1-\frac{1}{k^2}\\
+P(4.5-k2.87<X<4.5+k2.87) & \geq & 1-\frac{1}{k^2}
+\end{eqnarray*}
+In order to set up the inequality, we let $k=0.1742$.
+\begin{eqnarray*}
+P(4<X<5) & \geq & 1-\frac{1}{0.0303}\\
+	& \geq & -32.003
+\end{eqnarray*}
+Horrible bound. I did something wrong.
+
+\paragraph{4.67 A random variable $X$ has a mean $\mu=10$ and a variance $
+\sigma^2=4$. Using Chebyshev's theorem, find}
+\begin{enumerate}
+\item[a.] $P(|X-10|\geq 3)$
+\begin{eqnarray*}
+P(|X-10|\geq 3) = 1-P(|X-10|<3)=1-P(-3<X-10<3)=1-P(10-3<X<10+3)
+\end{eqnarray*}
+$k\sigma=3$, so $k=3/2$
+\begin{eqnarray*}
+1-P(10-(3/2)(2)<X<10+(3/2)(2))\boxed{\leq 4/9}
+\end{eqnarray*}
+
+\item[b.] $P(|X-10|<3)$
+\begin{eqnarray*}
+P(10-(3/2)(2)<X<10+(3/2)(2)) & \geq & 1-\frac{4}{9}\\
+				\boxed{\geq \frac{5}{9}}
+\end{eqnarray*}
+
+\item[c.] $P(5<X<15)$\\
+Given $\mu=10$ and $\sigma=2$, $10-2k=5$ and $10+2k=15$. Thus $k=5/2$.
+\begin{eqnarray*}
+P(10-(5/2)(2)<X<10+(5/2)(2)) & \geq & 1-(4/25)\\
+				\boxed{\geq \frac{21}{25}}
+\end{eqnarray*}
+
+\item[d.] the value of the constant $c$ such that $P(|X-10|\geq c)\leq 0.04$
+\begin{eqnarray*}
+P(|X-10|\geq c) & = & 1-P(|X-10|<c)=1-P(-c<X-10<c)=1-P(10-c<X<10+c)\\
+0.04 & = & \frac{1}{k^2}\\
+	k & = & 5\\
+	c & = & 2k\\
+	\boxed{c=10}
+\end{eqnarray*}
+\end{enumerate}
+
+\paragraph{4.69 Let $X$ represent the number that occurs when a red die is 
+tossed and $Y$ the number that occurs when a green die is tossed. Find}
+\begin{enumerate}
+\item[a.] $E[X+Y]$
+\begin{eqnarray*}
+E[X+Y] = E[X]+E[Y] & = & \sum_{x=1}^6 xf(x)+\sum_{y=1}^6 yf(y)\\
+	& = & (21)\left(\frac{1}{6}\right)+(21)\left(\frac{1}{6}\right)\\
+	& = & \boxed{7}
+\end{eqnarray*}
+
+\item[b.] $E[X-Y]$
+\begin{eqnarray*}
+E[X-Y] = E[X]-E[Y] & = & \sum_{x=1}^6 xf(x)-\sum_{y=1}^6 yf(y)\\
+	& = & (21)\left(\frac{1}{6}\right)-(21)\left(\frac{1}{6}\right)\\
+	& = & \boxed{0}
+\end{eqnarray*}
+	
+\item[c.] $E[XY]$
+\begin{eqnarray*}
+E[XY] & = & \sum_{x=1}^6\sum_{y=1}^6 xyf(x,y)\\
+	& = & (21)(21)\left(\frac{1}{36}\right)\\
+	& = & \boxed{12.25}
+\end{eqnarray*}
+
+\end{enumerate}
+
+%                                                                               |
+
+\paragraph{4.73 Consider a random variable $X$ with density function}
+\begin{eqnarray*}
+f(x)=\left\{\begin{array}{ll}
+	\frac{1}{5},& 0\leq x\leq 5,\\
+	0, & \mbox{elsewhere.}
+	\end{array}\right.
+\end{eqnarray*}
+\begin{enumerate}
+\item[a.] Find $\mu=E[X]$ and $\sigma^2 = E[(X-\mu)^2]$.
+\begin{eqnarray*}
+E[X] & = & \int_0^5 xf(x)dx = \int_0^5 \frac{x}{5}dx = \boxed{\frac{5}{2}}\\
+E[(X-\mu)^2] & = & \int_0^5 (x-\mu)^2f(x)dx = 
+	\int_0^5 \left(x-\frac{5}{2}\right)^2\left(\frac{1}{5}\right)dx = 
+		\boxed{\frac{25}{12}}
+\end{eqnarray*}
+
+\item[b.] Demonstrate that Chebyshev's theorem holds for $k=2$ and $k=3$.\\
+When $k=2$
+\begin{eqnarray*}
+P\left(\frac{5}{2}-2(2.89)<X<\frac{5}{2}+2(2.89)\right) \geq \frac{3}{4}\\
+P(-.387<X<5.387) \geq \frac{3}{4}
+\end{eqnarray*}
+This holds because $f(x)$ is nonzero when $0<X<5$, which lies within this range.\\
+When $k=3$
+\begin{eqnarray*}
+P\left(\frac{5}{2}-3(2.89)<X<\frac{5}{2}+3(2.89)\right) \geq \frac{8}{9}\\
+P(-1.83<X<6.83) \geq \frac{8}{9}
+\end{eqnarray*}
+This holds because $f(x)$ is nonzero when $0<X<5$, which lies within this range.
+
+\end{enumerate}
+
+\paragraph{4.77 The length of time $Y$ in minutes required to generate a human 
+reflex to tear gas has density function}
+\begin{eqnarray*}
+f(y)=\left\{\begin{array}{ll}
+	\frac{1}{4}e^{-y/4}, & 0\leq y< \infty\\
+	0, & \mbox{elsewhere.}
+	\end{array}\right.
+\end{eqnarray*}
+\begin{enumerate}
+\item[a.] What is the mean time to reflex?
+\begin{eqnarray*}
+E[Y] = \int_0^\infty y\frac{1}{4}e^{-y/4}dy = \boxed{4}
+\end{eqnarray*}
+
+\item[b.] Find $E[Y^2]$ and $V[Y]$.
+\begin{eqnarray*}
+E[Y^2] = \int_0^\infty y^2\frac{1}{4}e^{-y/4}dy = \boxed{32}\\
+V[Y] = E[Y^2]-E[Y]^2 = 32-16=\boxed{16}
+\end{eqnarray*}
+
+\end{enumerate}
+
+\paragraph{4.81 Prove Chebyshev's theorem when $X$ is a discrete random variable.\\}
+We can write variance as
+\begin{eqnarray}
+\sigma^2=E[(X-\mu)^2]=\sum_x(x-\mu)^2f(x)\\
+	= \sum_{x<\mu-k\sigma} (x-\mu)^2f(x) + \sum_{x>=\mu+k\sigma} (x-\mu)^2f(x)\\
+	\geq \sum_{x<\mu-k\sigma} k^2\sigma^2f(x) + \sum_{x>=\mu+k\sigma} k^2\sigma^2f(x)\\
+	\sum_{x<\mu-k\sigma} f(x) + \sum_{x>=\mu+k\sigma} f(x) \leq \frac{1}{k^2}\\
+	P(\mu-k\sigma<X<\mu+k\sigma)=\sum_{x=\mu-k\sigma}^{\mu+k\sigma} f(x) \geq 1-\frac{1}{k^2}
+\end{eqnarray}
+
+\paragraph{4.91 Consider the joint density function}
+\begin{eqnarray*}
+f(x,y)=\left\{\begin{array}{ll}
+	\frac{16y}{x^3},& x>2,0<y<1,\\
+	0,& \mbox{elsewhere.}
+	\end{array}\right.
+\end{eqnarray*}
+\textbf{Compute the correlation coefficient $\rho_{XY}$.}\\
+
+First we need the marginal density functions.
+\begin{eqnarray*}
+f_1(x) & = & \int_{-\infty}^{\infty} f(x,y)dy = \int_0^1 \frac{16y}{x^3}dy
+	= \left.\frac{8y^2}{x^3}\right|_0^1\\
+	& = & \frac{8}{x^3}, x>2\\
+f_2(y) & = & \int_{-\infty}^{\infty} f(x,y)dx = \int_2^\infty \frac{16y}{x^3}dx
+	= \left.\frac{-8y}{x^2}\right|_2^\infty\\
+	& = & 2y, 0<y<1
+\end{eqnarray*}
+
+Next we need $\mu_X$ and $\mu_Y$.
+\begin{eqnarray*}
+\mu_X & = & \int_2^\infty \frac{8}{x^2}dx = 4\\
+\mu_Y & = & \int_0^1 2y^2dy = \frac{2}{3}
+\end{eqnarray*}
+
+Now we need $E[XY]$.
+\begin{eqnarray*}
+E[XY] = \int_2^\infty \int_0^1 \frac{16y^2}{x^2}dxdy = \frac{8}{3}
+\end{eqnarray*}
+
+And finally we can compute $\sigma_{XY}$.
+\begin{eqnarray*}
+\sigma_{XY} & = & E[XY]-\mu_X\mu_Y = \frac{8}{3}-(4)\left(\frac{2}{3}\right)\\
+	 & = & \boxed{0}
+\end{eqnarray*}
+
+\end{document}
